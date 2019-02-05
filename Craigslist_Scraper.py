@@ -4,6 +4,11 @@
 import requests
 from contextlib import closing
 from bs4 import BeautifulSoup
+import pandas as pd
+
+def get_text(obj):
+    return None if obj is None else obj.text
+
 
 def url_to_bs(url):
     
@@ -54,7 +59,7 @@ def get_all_cl_sites(region = 'US'):
 sites = get_all_cl_sites('new jersey')
 
 params = {'query':'toyota tacoma'
-          ,'max_price':58000
+          ,'max_price':10000
           ,'max_auto_miles':355000
           ,'auto_cylinders':2
           ,'auto_drivetrain':3
@@ -79,12 +84,11 @@ for s,l in sites.items():
         #store the link and pricing information
         all_results.append({
                 'site':s
-                ,'sub-location':c.find('span',{'class','result-hood'}).text
-                ,'title':c.find('a',{'class','result-title hdrlnk'}).text
-                ,'price':c.find('span',{'class','result-price'}).text
+                ,'location':get_text(c.find('span',{'class','result-hood'}))
+                ,'title':get_text(c.find('a',{'class','result-title hdrlnk'}))
+                ,'price':get_text(c.find('span',{'class','result-price'}))
                 ,'link':c.find('a',{'class','result-title hdrlnk'})['href']
                 })
             
-    
-    
-    
+pd.set_option('display.max_column',None)
+print(pd.DataFrame(all_results)) 
