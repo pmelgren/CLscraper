@@ -8,5 +8,5 @@ setup(name='clautoscraper'
       ,author_email='pmelgren@gmail.com'
       ,license='MIT'
       ,packages=['clautoscraper']
-      ,install_requires=['bs4','requests','contextlib']
+      ,install_requires=['bs4','requests']
       ,zip_safe=False)

@@ -23,11 +23,12 @@ def url_to_bs(url):
 def get_all_cl_sites(region):
     """Get All Craigslist Sites
     
-    Get a named dictionary of all craigslist sites located on a given continent
+    Get a named dictionary of all craigslist sites from a given region.
     
     Arguments:
         region (str): The region (continent, state or country) to get all sites
-            from on the craigslist site page. Case should not matter.
+            from on the craigslist site page. All valid regions can be found at
+            https://www.craigslist.org/about/sites
     
     Return (dict): A dict with every link under that region named according to
         the site name.
@@ -129,18 +130,3 @@ def all_results_from_region(region, params):
                     })
                 
     return all_results
-
-params = {'query':'tacoma'
-          ,'max_price':7000
-          ,'max_auto_miles':170000
-          ,'auto_cylinders':2
-          ,'auto_drivetrain':3
-          ,'auto_transmission':1
-          }
-
-df = pd.DataFrame({})
-for r in ['Delaware','kansas','New Jersey','Pennsylvania','ohio','missouri']:
-    df = df.append(pd.DataFrame(all_results_from_region(r,params)))
-
-df.loc[:,['site','price','title','location','link']
-      ].to_csv("./final_results.csv",index = False)
