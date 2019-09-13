@@ -13,10 +13,10 @@ function found in this package would be taxing on the site and is not acceptable
 per craigslist's user agreement.
 
 #### Example usage:
->>> import clautoscraper as ca
->>> ca.all_results_from_region('kansas',{'query':'Jeep'})
+```import clautoscraper as ca
+ca.all_results_from_region('kansas',{'query':'Jeep'})
 
->>> params = {'query':'tacoma'
+params = {'query':'tacoma'
 			  ,'max_price':7000
 			  ,'max_auto_miles':170000
 			  ,'auto_cylinders':2
@@ -24,9 +24,9 @@ per craigslist's user agreement.
 			  ,'auto_transmission':1
 			  }
 
->>> all_res = []
->>> for r in ['Delaware','kansas','New Jersey','Pennsylvania','ohio','missouri']:
-		all_res.append(all_results_from_region(r,params))
+all_res = []
+for r in ['Delaware','kansas','New Jersey','Pennsylvania','ohio','missouri']:
+	all_res.append(all_results_from_region(r,params))```
 		
 
 
