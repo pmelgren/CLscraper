@@ -26,11 +26,7 @@ params = {'query':'tacoma'
 	  ,'auto_drivetrain':3
 	  ,'auto_transmission':1
 	  }
-
 all_res = []
 for r in ['Delaware','kansas','New Jersey','Pennsylvania','ohio','missouri']:
 	all_res.append(all_results_from_region(r,params))
 ```
-		
-
-
